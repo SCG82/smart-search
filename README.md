@@ -222,6 +222,8 @@ The properties of each returned object are the following:
 
 ##Release History
 
+v0.3.0 - Jan, 2022
+
 v0.2.0 - Sept, 2016
 
 v0.1.0 - July, 2015

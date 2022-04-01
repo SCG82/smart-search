@@ -1,34 +1,55 @@
 {
   "name": "smart-search",
-  "description": "JavaScript library that perform fuzzy-search",
-  "version": "0.2.0",
-  "homepage": "https://github.com/vdefilip/smart-search",
+  "description": "JavaScript fuzzy-search with no dependencies",
+  "version": "0.3.0",
+  "homepage": "https://github.com/SCG82/smart-search",
   "author": {
     "name": "vdefilip",
     "email": "vdefilip@student.42.fr"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/vdefilip/smart-search.git"
+    "url": "git://github.com/SCG82/smart-search.git"
   },
   "bugs": {
-    "url": "https://github.com/vdefilip/smart-search/issues"
+    "url": "https://github.com/SCG82/smart-search/issues"
   },
-  "licenses": "MIT",
-  "main": "lib/smart-search.js",
+  "license": "MIT",
+  "main": "lib/smart-search.min.js",
+  "module": "lib/smart-search.js",
   "engines": {
-    "node": ">= 0.6.0"
+    "node": ">=10.0.0"
   },
   "devDependencies": {
     "assert": "^1.3.0",
+    "dotenv": "^16.0.0",
     "jshint": "^2.8.0",
     "mocha": "^2.2.5",
+    "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.6.3",
     "uglify-js": "^2.4.23"
   },
   "scripts": {
+    "build": "tsc",
+    "build:min": "rollup -c",
     "test": "make test"
   },
-    "keywords": [
+  "files": ["lib"],
+  "exports": {
+    ".": {
+      "types": "./lib/smart-search.d.ts",
+      "node": {
+        "require": "./lib/smart-search.min.js",
+        "import": "./lib/smart-search.js"
+      },
+      "default": "./lib/smart-search.js"
+    },
+    "./lib/smart-search-min.js": "./lib/smart-search.min.js"
+  },
+  "type": "module",
+  "keywords": [
     "fuzzy",
     "search"
   ]
